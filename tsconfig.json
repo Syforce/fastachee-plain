@@ -1,11 +1,11 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-		"baseUrl": "src",
+		"baseUrl": "",
 		"outDir": "./dist",
 		"sourceMap": true,
 		"declaration": false,
-		"module": "commonjs",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
@@ -19,8 +19,15 @@
 			"dom"
 		],
 		"paths": {
-			"@framework/*": ["framework/*"],
-			"@model/*": ["model/*"]
+			"@framework/*": [
+				"projects/plain/src/lib/framework/*"
+			],
+			"@model/*": [
+				"projects/plain/src/lib/model/*"
+			],
+			"@plain/*": [
+				"projects/plain/src/lib/*"
+			]
 		}
 	}
 }
