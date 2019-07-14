@@ -1,0 +1,7 @@
+<div class="dynamic-form">
+	<form autocomplete="doNotAutoComplete">
+		<div class="field" *ngFor="let field of formConfig?.fields">
+			<corn-field [field]="field" [model]="formValue" [formConfig]="formConfig"></corn-field>
+		</div>
+	</form>
+</div>

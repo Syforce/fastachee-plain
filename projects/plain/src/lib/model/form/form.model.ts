@@ -1,4 +1,4 @@
-import { FormField } from '@model/form/field/field.model';
+import { FormField } from './field/field.model';
 
 export class FormConfig {
 	public fields: Array<FormField> = new Array<FormField>();

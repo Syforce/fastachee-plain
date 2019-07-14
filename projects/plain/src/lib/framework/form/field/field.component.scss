@@ -1,0 +1,20 @@
+corn-field {
+	margin-bottom: 10px;
+
+	> :nth-child(2) {
+		display: block;
+	}
+
+	> label {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	input {
+		border: 1px solid #999;
+		width: 100%;
+	    padding: 5px;
+	    box-sizing: border-box;
+	}
+}
+

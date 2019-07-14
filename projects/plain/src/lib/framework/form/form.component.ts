@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { FormConfig } from '@model/form/form.model';
+import { FormConfig } from '../../model/form/form.model';
 
 @Component({
 	selector: 'corn-form',
