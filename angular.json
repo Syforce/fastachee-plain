@@ -1,0 +1,71 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"fastachee": {
+			"root": "",
+			"sourceRoot": "src",
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"styleext": "scss"
+				}
+			},
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:browser",
+					"options": {
+						"outputPath": "dist",
+						"main": "src/index.ts",
+						"tsConfig": "src/tsconfig.app.json",
+						"assets": [],
+						"styles": [],
+						"stylePreprocessorOptions": {
+							"includePaths": []
+						},
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"fileReplacements": [],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": true,
+							"extractCss": true,
+							"namedChunks": true,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": true,
+							"buildOptimizer": true,
+							"budgets": []
+						}
+					}
+				},
+				"serve": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"browserTarget": "fastachee:build"
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "fastachee:build:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@angular-devkit/build-angular:tslint",
+					"options": {
+						"tsConfig": [
+							"src/tsconfig.app.json"
+						],
+						"exclude": [
+							"**/node_modules/**"
+						]
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "fastachee"
+}
