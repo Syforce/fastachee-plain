@@ -1,0 +1,25 @@
+.dynamic-select {
+	ul {
+		display: none;
+
+		&.visible {
+			display: block;
+		}
+
+		li {
+			padding: 5px;
+			border-bottom: 1px solid #999;
+			border-left: 1px solid #999;
+			border-right: 1px solid #999;
+			cursor: pointer;
+
+			&:hover {
+				background: #efefef;
+			}
+
+			&.selected {
+				background: #cae5f3;
+			}
+		}
+	}
+}

@@ -70,31 +70,31 @@
 		},
 		"plain": {
 			"projectType": "library",
-			"root": "projects/plain",
-			"sourceRoot": "projects/plain/src",
+			"root": "plain",
+			"sourceRoot": "plain/src",
 			"prefix": "lib",
 			"architect": {
 				"build": {
 					"builder": "@angular-devkit/build-ng-packagr:build",
 					"options": {
-						"tsConfig": "projects/plain/tsconfig.lib.json",
-						"project": "projects/plain/ng-package.json"
+						"tsConfig": "plain/tsconfig.lib.json",
+						"project": "plain/ng-package.json"
 					}
 				},
 				"test": {
 					"builder": "@angular-devkit/build-angular:karma",
 					"options": {
-						"main": "projects/plain/src/test.ts",
-						"tsConfig": "projects/plain/tsconfig.spec.json",
-						"karmaConfig": "projects/plain/karma.conf.js"
+						"main": "plain/src/test.ts",
+						"tsConfig": "plain/tsconfig.spec.json",
+						"karmaConfig": "plain/karma.conf.js"
 					}
 				},
 				"lint": {
 					"builder": "@angular-devkit/build-angular:tslint",
 					"options": {
 						"tsConfig": [
-							"projects/plain/tsconfig.lib.json",
-							"projects/plain/tsconfig.spec.json"
+							"plain/tsconfig.lib.json",
+							"plain/tsconfig.spec.json"
 						],
 						"exclude": [
 							"**/node_modules/**"

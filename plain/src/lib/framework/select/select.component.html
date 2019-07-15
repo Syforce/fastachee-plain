@@ -1,0 +1,6 @@
+<div class="dynamic-select">
+	<input type="text" readonly="true" [ngModel]="map[model[field.key]]" (click)="showList($event)">
+	<ul [class.visible]="isVisible">
+		<li *ngFor="let item of data" (click)="selectItem(item, $event)" [class.selected]="item[this.field.providerKey] === model[this.field.key]">{{item[field.providerLabel]}}</li>
+	</ul>
+</div>
