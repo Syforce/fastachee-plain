@@ -1,26 +1,25 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
+
 
 @Injectable({
-	providedIn: "root"
+	providedIn: 'root'
 })
 export class DependencyInjector {
 	private dependencies = {};
 
-	constructor() {
-		// for (let i = 0; i < arguments.length; i++) {
-		// 	if (arguments[i]) {
-		// 		this.setDependency(arguments[i]);
-		// 	}
-		// }
+	public getDependency(name: string) {
+		const injectable = this.dependencies[name];
+
+		if (!injectable) {
+			console.log(`%c Dependency ${name} is not loaded`, 'background: #993300; color: #fff;');
+		}
+
+		return injectable;
 	}
 
-	private setDependency(injectable) {
+	public setDependency(injectable) {
 		const name: string = injectable.constructor.name;
 		this.dependencies[name] = injectable;
-		console.log(`%c Registered ${name} `, 'background: #339900; color: #fff;');
-	}
-
-	public getDependency(name: string) {
-		return this.dependencies[name];
+		console.log(`%c Dependency ${name} added`, 'background: #339900; color: #fff;');
 	}
 }
