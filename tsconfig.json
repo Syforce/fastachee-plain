@@ -19,7 +19,7 @@
 			"dom"
 		],
 		"paths": {
-			"@plain": ["dist/plain"]
+			"plain": ["dist/plain"]
 		}
 	}
 }
