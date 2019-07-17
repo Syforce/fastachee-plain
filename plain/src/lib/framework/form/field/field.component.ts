@@ -4,6 +4,7 @@ import { FieldFactory } from './field.factory';
 
 import { FormConfig } from '../../../model/form/form.model';
 import { FormField } from '../../../model/form/field/field.model';
+import { ValidatorType } from '../../../validator/enum/validator-type.enum';
 
 @Component({
 	selector: 'corn-field',
@@ -35,13 +36,22 @@ export class FieldComponent implements OnInit {
 	ngOnInit() {
 		this.container.clear();
 
+		const validators = [];
+
+		if (this.field.validators) {
+			this.field.validators.forEach((type: ValidatorType) => {
+				validators.push(this.factory.getValidatorFunction(type));
+			});
+		}
+
 		const factory = this.factory.createFactoryInstance(this.field.type);
 		const ref = this.container.createComponent(factory);
 		const data = {
 			field: this.field,
 			model: this.model,
 			formConfig: this.formConfig,
-			injector: this.injector
+			injector: this.injector,
+			validators: validators
 		};
 
 		Object.assign(ref.instance, data);

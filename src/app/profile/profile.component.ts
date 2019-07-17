@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormConfig, FormField, FieldType, SelectFormField } from '../../../plain/src/public-api';
+import { FormConfig, FormField, FieldType, SelectFormField, ValidatorType } from '../../../plain/src/public-api';
 
 @Component({
 	selector: 'profile',
@@ -19,7 +19,8 @@ export class ProfileComponent implements OnInit {
 		const firstName: FormField = {
 			key: 'firstName',
 			label: 'First name',
-			type: FieldType.TEXT
+			type: FieldType.TEXT,
+			validators: [ValidatorType.REQUIRED]
 		};
 
 		const lastName: FormField = {
