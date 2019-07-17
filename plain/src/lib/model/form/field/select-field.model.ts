@@ -1,11 +1,12 @@
 import { FormField } from './field.model';
+import { FieldType } from '../enum/field-type.enum';
 
 export class SelectFormField extends FormField {
-	public provider: string;
-	public providerFunction: Function;
+	public provider: string | Array<any>;
+	public providerFunction?: Function;
+	public presetValue?: any;
 	public providerKey: string;
 	public providerLabel: string;
-	public presetValue?: any;
 
 	constructor(field?: SelectFormField) {
 		super(field);

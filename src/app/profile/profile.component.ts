@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormConfig, FormField, FieldType } from '../../../plain/src/public-api';
+import { FormConfig, FormField, FieldType, SelectFormField } from '../../../plain/src/public-api';
 
 @Component({
 	selector: 'profile',
@@ -11,7 +11,8 @@ export class ProfileComponent implements OnInit {
 	public config: FormConfig;
 	public value = {
 		firstName: 'Syforce',
-		lastName: 'Lightningstorm'
+		lastName: 'Lightningstorm',
+		gender: 'Male'
 	};
 
 	ngOnInit() {
@@ -27,12 +28,25 @@ export class ProfileComponent implements OnInit {
 			type: FieldType.TEXT
 		};
 
+		const gender: SelectFormField = {
+			key: 'gender',
+			label: 'Gender',
+			providerKey: 'value',
+			providerLabel: 'value',
+			type: FieldType.SELECT,
+			provider: [{
+				value: 'Male'
+			}, {
+				value: 'Female'
+			}]
+		}
+
 		this.config = {
 			fields: [],
 			rows: [{
 				fields: [firstName, lastName, lastName]
 			}, {
-				fields: [firstName, lastName]
+				fields: [firstName, gender]
 			}]
 		};
 	}

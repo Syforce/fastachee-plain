@@ -26,14 +26,13 @@ export class SelectComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		const service = this.dependencyInjector.getDependency(this.field.provider);
-		this.getSubscription = this.field.providerFunction.call(service).subscribe((data) => {
-			this.data = data;
-
-			this.data.forEach((item) => {
-				this.map[item[this.field.providerKey]] = item[this.field.providerLabel];
-			});
-		});
+		if (this.field) {
+			if (this.field.provider instanceof Array) {
+				this.populateStaticData();
+			} else {
+				this.populatePromiseData();
+			}
+		}
 	}
 
 	@HostListener('document:click', ['$event'])
@@ -50,6 +49,27 @@ export class SelectComponent implements OnInit {
 		event.stopImmediatePropagation();
 		this.model[this.field.key] = item[this.field.providerKey];
 		this.isVisible = false;
+	}
+
+	private populatePromiseData() {
+		const providerName: string = this.field.provider as string;
+		const service = this.dependencyInjector.getDependency(providerName);
+
+		this.getSubscription = this.field.providerFunction.call(service).subscribe((data) => {
+			this.data = data;
+			this.saveDataInternally();
+		});
+	}
+
+	private populateStaticData() {
+		this.data = this.field.provider as Array<any>;
+		this.saveDataInternally();
+	}
+
+	private saveDataInternally() {
+		this.data.forEach((item) => {
+			this.map[item[this.field.providerKey]] = item[this.field.providerLabel];
+		});
 	}
 
 	ngOnDestroy() {

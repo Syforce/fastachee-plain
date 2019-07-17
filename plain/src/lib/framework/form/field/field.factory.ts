@@ -2,7 +2,7 @@ import { Injectable, ComponentFactoryResolver } from '@angular/core';
 
 // Component
 import { InputComponent } from '../../input/input.component';
-// import { DynamicSelectComponent } from '@shared/framework/dynamic-select/dynamic-select.component';
+import { SelectComponent } from '../../select/select.component';
 
 // Enum
 import { FieldType } from '../../../model/form/enum/field-type.enum';
@@ -10,8 +10,8 @@ import { FieldType } from '../../../model/form/enum/field-type.enum';
 const MAP = {
 	[FieldType.TEXT]: InputComponent,
 	[FieldType.NUMBER]: InputComponent,
-	[FieldType.PASSWORD]: InputComponent
-	// [FieldType.SELECT]: DynamicSelectComponent
+	[FieldType.PASSWORD]: InputComponent,
+	[FieldType.SELECT]: SelectComponent
 }
 
 @Injectable()
